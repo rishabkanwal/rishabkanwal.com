@@ -1,130 +1,898 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Rishab Kanwal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishab Kanwal | Resume</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0071e3;
+            --primary-dark: #0058b0;
+            --primary-light: #40a0ff;
+            --secondary: #1d1d1f;
+            --accent: #30d158;
+            --accent-light: #5ae07a;
+            --background: #fbfbfd;
+            --background-alt: #f5f5f7;
+            --text: #1d1d1f;
+            --text-light: #6e6e73;
+            --text-lighter: #86868b;
+            --border: rgba(0, 0, 0, 0.08);
+            --gradient-start: #2563eb;
+            --gradient-end: #7c3aed;
+
+            --glass-bg: rgba(255, 255, 255, 0.72);
+            --glass-bg-dark: rgba(29, 29, 31, 0.82);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --glass-border-dark: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --glass-shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.12);
+            --blur-amount: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: linear-gradient(180deg, #f5f5f7 0%, #fbfbfd 50%, #f0f0f5 100%);
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(0, 113, 227, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1100px;
+            z-index: 1000;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        nav:hover {
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 980px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+            font-size: 0.85rem !important;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 24px 80px;
+        }
+
+        /* Hero Header */
+        .hero-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+
+        .hero-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-header h1 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 0.5rem 1rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Cards */
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .section-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Experience Entry */
+        .experience-entry {
+            padding: 1.25rem;
+            background: #fafafa;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .experience-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-entry:hover {
+            background: #ffffff;
+            border-color: rgba(37, 99, 235, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .experience-company {
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .experience-date {
+            font-size: 0.8rem;
+            color: var(--text-lighter);
+            background: rgba(0, 0, 0, 0.04);
+            padding: 0.25rem 0.75rem;
+            border-radius: 980px;
+            white-space: nowrap;
+        }
+
+        ul {
+            margin: 0.75rem 0 0 0;
+            padding-left: 1.25rem;
+            color: var(--text-light);
+        }
+
+        li {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        li::marker {
+            color: var(--primary-light);
+        }
+
+        strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--gradient-end);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-category {
+            padding: 1.25rem;
+            background: #fafafa;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-category:hover {
+            background: #ffffff;
+            border-color: rgba(37, 99, 235, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .skill-category h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .skill-category h4::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+        }
+
+        .skill-list {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .skill-list strong {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-lighter);
+        }
+
+        .skill-list strong:first-child {
+            margin-top: 0;
+        }
+
+        /* Project Cards */
+        .project-entry {
+            padding: 1.25rem;
+            background: #fafafa;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .project-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-entry:hover {
+            background: #ffffff;
+            border-color: rgba(37, 99, 235, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .project-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-lighter);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            padding: 1.5rem;
+            background: #fafafa;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .highlight-box ul {
+            margin: 0;
+        }
+
+        .highlight-box li {
+            padding: 0.25rem 0;
+        }
+
+        /* Languages */
+        .languages-list {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .language-tag {
+            padding: 0.5rem 1rem;
+            background: #fafafa;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 980px;
+            font-size: 0.9rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .language-tag::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        .page-footer {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            text-align: center;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        .footer-content {
+            font-size: 0.9rem;
+            color: var(--text-lighter);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                padding: 90px 16px 60px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                top: 8px;
+                width: calc(100% - 16px);
+                padding: 0.6rem 1rem;
+                border-radius: 16px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-header h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <section class="page-header">
-    <h1 class="project-name">Rishab Kanwal</h1>
-    <h2 class="title-tagline">Seeking Software Engineering opportunities</h2>
-  </section>
-
-  <section class="main-content">
-   <div class="row">
-    <div class="card card-color">
-      <div class="card-content white-text">
-        <span id="who-am-i" class="card-title anchor" href="#who-am-i" aria-hidden="true">Who am I?</span>
-        <div>
-          <img height="200" width="200" class="img-circle" src="https://avatars3.githubusercontent.com/u/10171827?v=3&s=460">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <img src="favicon.svg" alt="RK" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="mailto:rishab@example.com" class="nav-cta">Contact</a>
+            </div>
         </div>
-        <p class="project2-tagline">I just graduated from the University of Colorado Boulder with a B.S. in Computer Science I have experience in Mobile application development for Android and iOS and server side development with Django and Node.js. I have a strong interest in Data Science and love working with UI/UX.</p>
-      </div>
-      <div class="card-action">
-        <a href="https://github.com/rishabkanwal">
-          <svg aria-hidden="true" class="octicon octicon-mark-github" height="50" role="img" title="GitHub " version="1.1" viewBox="0 0 16 16" width="50"><path style="fill:#ECEFF1" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/rishabkanwal">
-          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="50" height="50" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-            <path style="fill:#ECEFF1" d="M426.656,0H85.344C38.406,0,0,38.406,0,85.343v341.313C0,473.624,38.407,512,85.344,512h341.312  C473.593,512,512,473.624,512,426.656V85.344C511.998,38.406,473.593,0,426.656,0z M157.395,428.635H79.969V195.671h77.426V428.635z   M118.684,163.879h-0.508c-25.983,0-42.788-17.898-42.788-40.266c0-22.846,17.313-40.248,43.803-40.248  c26.486,0,42.791,17.396,43.296,40.248C162.487,145.973,145.678,163.879,118.684,163.879z M436.611,428.635h-77.426V303.997  c0-31.308-11.205-52.669-39.219-52.669c-21.395,0-34.143,14.406-39.73,28.318c-2.041,4.98-2.548,11.925-2.548,18.883v130.104  h-77.444c0,0,1.018-211.103,0-232.963h77.436v33c10.283-15.864,28.672-38.479,69.785-38.479c50.952,0,89.146,33.309,89.146,104.856  V428.635L436.611,428.635z"/>
-          </svg>
-        </a>
-        <a href="Resume.pdf">
-          <svg width="50" height="50" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="Resume">
-                <path style="fill:#ECEFF1" d="M0,24.9976431 C0,11.1918261 11.1902709,0 24.9976431,0 L275.002357,0 C288.808174,0 300,11.1902709 300,24.9976431 L300,275.002357 C300,288.808174 288.809729,300 275.002357,300 L24.9976431,300 C11.1918261,300 0,288.809729 0,275.002357 L0,24.9976431 Z M149.5,80 C163.030976,80 174,69.0309764 174,55.5 C174,41.9690236 163.030976,31 149.5,31 C135.969024,31 125,41.9690236 125,55.5 C125,69.0309764 135.969024,80 149.5,80 Z M116.76351,100.089485 C118.808572,96.1740704 124.042061,93 128.471294,93 L169.277878,93 C173.698847,93 179.004297,96.1457593 181.123351,100.01788 L204.635928,142.98212 C206.757033,146.857988 204.887242,150 200.473505,150 L98.6977516,150 C94.2778042,150 92.3484696,146.833797 94.3976404,142.910515 L116.76351,100.089485 Z M22,178 L277.319149,178 L277.319149,193 L22,193 L22,178 Z M22,213 L277.319149,213 L277.319149,228 L22,228 L22,213 Z M22,248 L277.319149,248 L277.319149,263 L22,263 L22,248 Z" id="Combined-Shape"></path>
-              </g>
-            </g>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
+    </nav>
 
-  <div class="row">
-    <div class="card card-color">
-      <div class="card-content white-text">
-        <span id="education" class="anchor card-title" href="#education" aria-hidden="true">Education</span>
-      </div>
-      <div class="card-action">
-        <span class="card-title">
-          <span class="anchor" aria-hidden="true">University of Colorado Boulder – BS Computer Science</span>
-        </span>
-        <p class="project2-tagline">August 2014 - May 2017 (Expected)</p>
-        <span id="narsee-monjee-institute-of-management-studies-india--bba-business-administration" class="anchor card-title" href="#narsee-monjee-institute-of-management-studies-india--bba-business-administration" aria-hidden="true">Narsee Monjee Institute of Management Studies (India) – BBA Business Administration</span>
-        <p class="project2-tagline">July 2013 - April 2014 (Transferred out)</p>
-      </div>
-    </div>
-  </div>
+    <main class="container">
+        <!-- Hero Header -->
+        <header class="hero-header">
+            <img src="https://www.gravatar.com/avatar/bc2b32b762915e3866cc1e3f3726b58f?s=400" alt="Rishab Kanwal" class="hero-photo">
+            <h1>Rishab Kanwal</h1>
+            <p class="hero-tagline">
+                Full-stack software engineer with 8 years of experience building production systems at scale.
+                Passionate about investment intelligence and building products that matter.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">8+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">London</div>
+                    <div class="stat-label">Based</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">Full</div>
+                    <div class="stat-label">Stack</div>
+                </div>
+            </div>
+        </header>
 
-  <div class="row">
-    <div class="card card-color">
-      <div class="card-content white-text">
-        <span id="experience" class="anchor card-title" href="#experience" aria-hidden="true">Experience</span>
-      </div>
-      <div class="card-action">
-        <span class="card-title">
-        <span class="anchor" aria-hidden="true">Software Engineer at Sigmend</span>
-          <br/>
-          <span class="anchor" aria-hidden="true">Boulder, Colorado March 2016 - April 2016</span>
-        </span>
-        <p class="project-tagline">Part time March 2016 - April 2016, and Full Time May 2016 onwards.</p>
-        <p class="project-tagline">Developed a team sentiment tracking Slack Application from scratch written in Node.js using botkit.</p>
-        <p class="project-tagline"> Implemented REST API endpoints for Slack application to manage bot queries and statistics.</p>
-        <p class="project-tagline">Setup and implemented a SinonJS, ChaiJS and ChaiHTTP testing environment for Slack Application.</p>       
-        <p class="project-tagline">Developed an Android application for kiosks to administer satisfaction surveys and administer employee contests.</p>
-        <p class="project-tagline">Managed application deployment to AWS Elastic Beanstalk.</p>
-        <span class="card-title">
-          <span class="anchor" aria-hidden="true">Software Developer at Free &amp; For Sale</span>
-          <br/>
-          <span class="anchor" aria-hidden="true">Boulder, Colorado November 2015 – March 2016</span>
-        </span>
-        <p class="project-tagline">Created a Django 1.9 + PostgreSQL REST API with Basic Auth for authentication using Django REST Framework.</p>
-        <p class="project-tagline">Integrated Facebook Auth and Graph APIs to Django backend to fetch user login and friend information.</p>
-        <p class="project-tagline">Managed Django application deployment to Heroku.</p>
-        <span class="card-title">
-          <span class="anchor" aria-hidden="true">Mobile Application Developer at BindassParty Pvt.Ltd</span>
-          <br/>
-          <span class="anchor" aria-hidden="true">Mumbai, India May May 2015 – August 2016</span>
-        </span>
-        <p class="project-tagline">Created e-commerce management tool in native Android and iOS from scratch whilst maintaining identical functionality.</p>
-        <p class="project-tagline">Added an AES encrypted local SQLite store for data caching and offline viewing on both platforms.</p>
-        <p class="project-tagline">Integrated REST API calls to Android and iOS to automate fetching and updating data.</p>
-        <p class="project-tagline">Reduced request call overhead by re-implementing API endpoint structure to improve backend query times and boost front-end JSON parsing time by ~3x.</p>
-      </div>
-    </div>
-  </div>
+        <div class="content-grid">
+            <!-- Professional Experience -->
+            <section class="glass-card" id="experience">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h2>Professional Experience</h2>
+                </div>
 
-  <div class="row">
-    <div class="card card-color">
-      <div class="card-content white-text">
-        <span id="skills" class="anchor card-title" href="#skills" aria-hidden="true">Skills</span>
-      </div>
-      <div class="card-action">
-        <span class="card-title">
-          <span class="anchor" aria-hidden="true">Programming Languages</span>
-        </span>
-        <p class="project2-tagline">Python, JavaScript/Node.js, Java, Swift, C/C++, Scala, HTML/CSS/Markdown, XML.</p>
-        <span class="card-title">
-          <span class="anchor" aria-hidden="true">Frameworks, Platforms and Tools</span>
-        </span>
-        <p class="project2-tagline">Native Android, Native iOS, Django, SQLite, PostgreSQL, Cassandra, Git, Xcode, IntelliJ, JIRA, Pivotal Tracker, AWS (EC2, Elastic Beanstalk, S3).</p>
-        <span class="card-title">
-          <span class="anchor" aria-hidden="true">Miscellaneous</span>
-        </span>
-        <p class="project2-tagline">Test driven development, Agile Development, Functional programming, REST API Design, Android/iOS/Website Design, Slack App Development.</p>
-      </div>
-    </div>
-  </div>
-</section>
+                <div class="experience-entry">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Software Engineer</div>
+                            <div class="experience-company">The Trade Desk, Inc.</div>
+                        </div>
+                        <div class="experience-date">Aug 2017 - Present</div>
+                    </div>
+                    <ul>
+                        <li><strong>Currently:</strong> CTV (Connected TV) team working on improving ad targeting for live events</li>
+                        <li><strong>7 years in United States</strong> (2017-2024), <strong>1 year in United Kingdom</strong> (2024-present)</li>
+                        <li>Implemented task to assign spend priorities to ad groups based on performance metrics</li>
+                        <li>Implemented new fee model in public-facing REST API and UI</li>
+                        <li>Fully developed geo-targeting data update tool with automated update workflow</li>
+                        <li>Experience with high-scale production systems serving billions of ad requests daily</li>
+                    </ul>
+                </div>
 
+                <div class="experience-entry">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Software Engineer</div>
+                            <div class="experience-company">Sigmend, Inc.</div>
+                        </div>
+                        <div class="experience-date">Jun - Aug 2016</div>
+                    </div>
+                    <ul>
+                        <li><strong>Part of Techstars Accelerator Program</strong> (investor-backed startup experience)</li>
+                        <li>Developed team sentiment tracking Slack application from scratch using Node.js and botkit</li>
+                        <li>Managed application deployment to AWS Elastic Beanstalk</li>
+                    </ul>
+                </div>
+
+                <div class="experience-entry">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Software Engineering Intern</div>
+                            <div class="experience-company">Free & For Sale, Inc.</div>
+                        </div>
+                        <div class="experience-date">Nov 2015 - Jan 2016</div>
+                    </div>
+                    <ul>
+                        <li>Created REST API using Django REST Framework and PostgreSQL database</li>
+                        <li>Integrated Facebook's authentication and graph APIs into Django backend</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Technical Skills -->
+            <section class="glass-card" id="skills">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h2>Technical Skills</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <div class="skill-list">
+                            Python, C#, JavaScript, SQL, Java, Swift, Scala
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Backend & APIs</h4>
+                        <div class="skill-list">
+                            Django, Django REST Framework, .NET, Node.js
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Frontend & Mobile</h4>
+                        <div class="skill-list">
+                            React, AngularJS, Native iOS (Swift), Native Android (Java)
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Databases</h4>
+                        <div class="skill-list">
+                            PostgreSQL, SQL Server, MongoDB, Cassandra, Vertica, Google Cloud SQL
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Cloud & DevOps</h4>
+                        <div class="skill-list">
+                            AWS (EC2, S3, Lambda, RDS), GCP, Docker, Kubernetes, Cloud Build
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Data Engineering</h4>
+                        <div class="skill-list">
+                            Apache Spark, ETL pipelines, Large-scale data processing
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="glass-card" id="projects">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    </div>
+                    <h2>Notable Projects</h2>
+                </div>
+
+                <div class="project-entry">
+                    <div class="project-title">Musiers - Social Network for Musicians</div>
+                    <div class="project-subtitle">Aug 2018 - Jan 2019</div>
+                    <ul>
+                        <li>Fully designed and developed REST API, database, storage and deployment infrastructure</li>
+                        <li><strong>Tech Stack:</strong> React, Django REST API, Google Cloud SQL, Kubernetes/Docker</li>
+                        <li>Implemented Facebook and Google OAuth login/signup</li>
+                    </ul>
+                </div>
+
+                <div class="project-entry">
+                    <div class="project-title">Party Catering - Catering Marketplace</div>
+                    <div class="project-subtitle">Oct 2018 - Jan 2019</div>
+                    <ul>
+                        <li>Fully designed and developed database models, storage and deployment infrastructure</li>
+                        <li><strong>Live Platform:</strong> <a href="https://party.catering">party.catering</a></li>
+                    </ul>
+                </div>
+
+                <div class="project-entry">
+                    <div class="project-title">Scrobblify - Last.fm Viewer for Apple Music</div>
+                    <div class="project-subtitle">Jun - Aug 2017</div>
+                    <ul>
+                        <li>Fully designed and developed open-source native iOS application in Swift</li>
+                        <li><strong>Open Source:</strong> <a href="https://github.com/rishabkanwal/Scrobblify-iOS">GitHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="project-entry">
+                    <div class="project-title">Twittical - Political Sentiment Analysis</div>
+                    <div class="project-subtitle">Big Data Course Spring 2016</div>
+                    <ul>
+                        <li>AngularJS frontend, Django REST API, Cassandra database, Apache Spark for batch processing</li>
+                        <li>Real-time political sentiment tracking over 10-day periods</li>
+                    </ul>
+                </div>
+
+                <div class="project-entry">
+                    <div class="project-title">OmMake - Project Management Tool</div>
+                    <div class="project-subtitle">CU Entrepreneurial Capstone | 2016-2017</div>
+                    <ul>
+                        <li><strong>Achievement:</strong> Third place in IT Track for university competition</li>
+                        <li>Node.js REST API, AngularJS web console, native Android app, MongoDB</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="glass-card">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <h2>Education</h2>
+                </div>
+
+                <div class="experience-entry">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Bachelor of Science, Computer Science</div>
+                            <div class="experience-company">University of Colorado, Boulder</div>
+                        </div>
+                        <div class="experience-date">Aug 2014 - May 2017</div>
+                    </div>
+                    <ul>
+                        <li>Entrepreneurial track capstone project</li>
+                        <li>Focus on software engineering, data structures, algorithms, and business fundamentals</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Investment Experience -->
+            <section class="glass-card">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h2>Investment Experience</h2>
+                </div>
+
+                <div class="experience-entry">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Active Retail Investor</div>
+                        </div>
+                        <div class="experience-date">2017 - Present</div>
+                    </div>
+                    <ul>
+                        <li>Systematic trading approach across multiple strategies</li>
+                        <li>Specialized in LEAP options with documented entry/exit criteria</li>
+                        <li>Deep understanding of financial markets and valuation</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Demonstrated Capabilities -->
+            <section class="glass-card">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h2>Demonstrated Capabilities</h2>
+                </div>
+
+                <div class="highlight-box">
+                    <ul>
+                        <li><strong>Solo execution:</strong> Built multiple full-stack products independently from concept to deployment</li>
+                        <li><strong>Rapid development:</strong> Shipped production systems in 3-6 month timeframes</li>
+                        <li><strong>Modern architecture:</strong> Experience with microservices, cloud infrastructure, scalable databases</li>
+                        <li><strong>Product thinking:</strong> Design, development, deployment, and user experience across entire stack</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Languages -->
+            <section class="glass-card">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h2>Languages</h2>
+                </div>
+
+                <div class="languages-list">
+                    <span class="language-tag">English (Native/Fluent)</span>
+                    <span class="language-tag">Hindi (Native/Fluent)</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <div class="footer-content">
+                Rishab Kanwal - Software Engineer
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/rishabkanwal">GitHub</a>
+                <a href="https://linkedin.com/in/rishabkanwal">LinkedIn</a>
+                <a href="mailto:rishab@example.com">Email</a>
+            </div>
+        </footer>
+    </main>
 </body>
 </html>
